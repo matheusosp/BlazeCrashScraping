@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-var driver =  new ChromeDriver();
+var driver = new ChromeDriver();
 var js = (IJavaScriptExecutor)driver;
 var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(500));
 driver.Navigate().GoToUrl("https://blaze.com/pt/games/crash");
@@ -11,10 +11,10 @@ wait.Until(d => js.ExecuteScript("return document.readyState").Equals("complete"
 DateTime endTime = DateTime.Now.AddHours(15);
 while (DateTime.Now < endTime)
 {
-    var div = driver.FindElement(By.ClassName("crash-previous")).GetAttribute("innerHTML");;
+    var div = driver.FindElement(By.ClassName("crash-previous")).GetAttribute("innerHTML"); ;
     Func<IWebDriver, bool> condition = driver =>
     {
-        var div2 = driver.FindElement(By.ClassName("crash-previous")).GetAttribute("innerHTML");;
+        var div2 = driver.FindElement(By.ClassName("crash-previous")).GetAttribute("innerHTML"); ;
         return div != div2;
     };
     wait.Until(condition);
@@ -41,7 +41,7 @@ while (DateTime.Now < endTime)
         }
 
     }
-    
+
 }
 driver.Quit();
 Console.ReadLine();
